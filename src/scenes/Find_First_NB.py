@@ -3,7 +3,9 @@ from pathlib import Path
 
 from manim import *
 
+from src.data import positions
 from src.scenes.KNN_Scene import KNN_Scene
+from src.utils.distances import nearest_pos
 
 
 class Find_First_NB(KNN_Scene):
@@ -11,8 +13,7 @@ class Find_First_NB(KNN_Scene):
     def construct(self):
         KNN_Scene.construct(self)
 
-        self.play(Broadcast(Circle(radius=4, color=TEAL_A), n_mobs=3, run_time=2))
-        self.wait(3)
+        self.wait(6)
 
 
 if __name__ == "__main__":

@@ -9,6 +9,9 @@ class Changing_NB_1(KNN_Scene):
 
     def construct(self):
         KNN_Scene.construct(self)
+
+        self.x.add_updater(lambda it: it.move_to([self.tracker.get_value(), self.tracker.get_value(), 0]))
+
         self.play(self.tracker.animate.set_value(2), rate_func=linear, run_time=2)
         self.wait(3)
 

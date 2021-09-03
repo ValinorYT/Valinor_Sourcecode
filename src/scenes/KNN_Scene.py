@@ -21,9 +21,7 @@ class KNN_Scene(Scene):
         super().__init__()
         self.camera.background_color = background
 
-        self.x = always_redraw(
-            lambda: Annulus(inner_radius=.1, outer_radius=.18).move_to(
-                [self.tracker.get_value(), self.tracker.get_value(), 0]))
+        self.x = Annulus(inner_radius=.1, outer_radius=.18)
 
         self.add(self.x)
 
