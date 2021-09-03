@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from manim import *
 
-from scenes.KNN_Scene import KNN_Scene
+from src.scenes.KNN_Scene import KNN_Scene
 
 
 class Changing_NB_1(KNN_Scene):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from utils.distances import nearest_pos
+from src.utils.distances import nearest_pos
 
 
 class Test(TestCase):

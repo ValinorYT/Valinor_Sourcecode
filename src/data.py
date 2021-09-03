@@ -1,7 +1,7 @@
 import numpy as np
 from manim import Circle
 
-from config import MY_COLORS
+from src.config import MY_COLORS
 
 labels = [
     1,  # 0

@@ -1,7 +1,7 @@
 from manim import *
 
-from config import background
-from data import dots
+from src.config import background
+from src.data import dots
 
 
 class KNN_Scene(Scene):
