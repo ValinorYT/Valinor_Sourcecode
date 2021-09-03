@@ -40,7 +40,5 @@ positions = [
 ]
 positions = np.array([[float(line[0]) / 3, float(line[1]) / 3, 0] for line in positions])
 
-dots = [Circle(color=MY_COLORS[labels[i]], radius=.15, stroke_width=5, fill_opacity=.1).move_to(positions[i]) for i in
-        range(len(positions))]
-for i in range(1):
-    dots[i].set_fill(MY_COLORS[labels[i]], 0.5)
+dots = [Circle(color=MY_COLORS[labels[i]], radius=.15, stroke_width=5, fill_opacity=.1).move_to(positions[i])
+        for i in range(len(positions))]
