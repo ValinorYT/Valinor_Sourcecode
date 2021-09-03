@@ -1,7 +1,8 @@
 from manim import *
 
 from src.config import background
-from src.data import dots
+from src.data import dots, positions
+from src.utils.distances import nearest_pos
 
 
 class KNN_Scene(Scene):
@@ -27,3 +28,6 @@ class KNN_Scene(Scene):
 
     def construct(self):
         self.play(Create(VGroup(*dots)))
+
+    def get_nearest_dot(self):
+        return nearest_pos(self.x.get_center(), positions)
