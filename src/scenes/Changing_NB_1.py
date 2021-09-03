@@ -17,9 +17,9 @@ class Changing_NB_1(KNN_Scene):
         line1 = always_redraw(lambda:
                               Line(
                                   start=self.x.get_center(),
-                                  end=self.get_nearest_dot(),
+                                  end=self.get_nearest_dot().get_center(),
                                   stroke_width=line_width,
-                                  color=RED)
+                                  color=self.get_nearest_dot().get_color())
                               )
         self.add(line1)
         self.play(self.tracker.animate.set_value(4), rate_func=linear, run_time=6)
@@ -28,4 +28,4 @@ class Changing_NB_1(KNN_Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} Changing_NB_1 -pqm")
+    os.system(f"manim {script_name} Changing_NB_1 -pql")

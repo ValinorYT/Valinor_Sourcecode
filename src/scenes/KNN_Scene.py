@@ -30,4 +30,4 @@ class KNN_Scene(Scene):
         self.play(Create(VGroup(*dots)))
 
     def get_nearest_dot(self):
-        return nearest_pos(self.x.get_center(), positions)
+        return dots_sorted_by_distance(self.x, dots)[0]
