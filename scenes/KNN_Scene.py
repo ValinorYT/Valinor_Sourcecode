@@ -1,10 +1,7 @@
-import os
-from pathlib import Path
-
 from manim import *
 
-from config import background, line_width
-from data import dots, positions
+from config import background
+from data import dots
 
 
 class KNN_Scene(Scene):
@@ -23,20 +20,12 @@ class KNN_Scene(Scene):
     def __init__(self):
         super().__init__()
         self.camera.background_color = background
+
         self.x = always_redraw(
             lambda: Annulus(inner_radius=.1, outer_radius=.18).move_to(
                 [self.tracker.get_value(), self.tracker.get_value(), 0]))
-
-        self.line0 = always_redraw(lambda: Line(
-            self.x.get_center(),
-            positions[0],
-            color=dots[0].color, buff=.2,
-            stroke_width=line_width))
-
-        self.lines = [self.line0]
 
         self.add(self.x)
 
     def construct(self):
         self.play(Create(VGroup(*dots)))
-
