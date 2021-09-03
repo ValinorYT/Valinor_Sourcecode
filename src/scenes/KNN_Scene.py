@@ -1,8 +1,6 @@
 from manim import *
 
 from src.config import background
-from src.data import dots, positions
-from src.utils.distances import dots_sorted_by_distance, nearest_pos
 
 
 class KNN_Scene(Scene):
@@ -22,6 +20,3 @@ class KNN_Scene(Scene):
         super().__init__()
         self.camera.background_color = background
         self.x = Annulus(inner_radius=.1, outer_radius=.18)
-
-    def get_nearest_dot(self):
-        return dots_sorted_by_distance(self.x, dots)[0]
