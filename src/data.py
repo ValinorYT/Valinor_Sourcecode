@@ -1,7 +1,7 @@
 import numpy as np
 from manim import Circle
 
-from src.config import MY_COLORS
+from src.config import MY_COLORS, dot_radius
 
 labels = [
     1,  # 0
@@ -40,5 +40,5 @@ positions = [
 ]
 positions = np.array([[float(line[0]) / 3, float(line[1]) / 3, 0] for line in positions])
 
-dots = [Circle(color=MY_COLORS[labels[i]], radius=.15, stroke_width=5, fill_opacity=.1).move_to(positions[i])
+dots = [Circle(color=MY_COLORS[labels[i]], radius=dot_radius, stroke_width=5, fill_opacity=.1).move_to(positions[i])
         for i in range(len(positions))]

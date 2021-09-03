@@ -21,13 +21,7 @@ class KNN_Scene(Scene):
     def __init__(self):
         super().__init__()
         self.camera.background_color = background
-
         self.x = Annulus(inner_radius=.1, outer_radius=.18)
-
-        self.add(self.x)
-
-    def construct(self):
-        self.play(Create(VGroup(*dots)))
 
     def get_nearest_dot(self):
         return dots_sorted_by_distance(self.x, dots)[0]
