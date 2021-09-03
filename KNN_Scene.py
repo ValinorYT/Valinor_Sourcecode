@@ -4,7 +4,7 @@ from config import background
 from data import dots
 
 
-class KNN_Scene(GraphScene):
+class KNN_Scene(Scene):
     CONFIG = {
         "x_min": -5,
         "x_max": 5,
@@ -14,9 +14,6 @@ class KNN_Scene(GraphScene):
         "function_color": WHITE,
         "axes_color": WHITE
     }
-
-    def __init__(self, **kwargs):
-        GraphScene.__init__(self, **kwargs)
 
     def construct(self):
         self.camera.background_color = background
