@@ -1,7 +1,7 @@
 from manim import *
+from src.data.colors import background
+from src.data.dots1 import dots
 
-from src.config import background
-from src.data import dots
 from src.utils.color_utils import most_common_color
 from src.utils.distances import dots_sorted_by_distance
 

@@ -4,8 +4,8 @@ from pathlib import Path
 from manim import *
 from numpy import sin
 
-from src.config import line_width, dot_radius
-from src.data import dots
+from src.data.dots1 import dots
+from src.data.lengths import dot_radius, line_width
 from src.scenes.KNN_Scene import KNN_Scene
 from src.utils.distances import dots_sorted_by_distance
 
@@ -16,7 +16,7 @@ class Changing_NB_1(KNN_Scene):
         self.play(Create(VGroup(*dots)))
         self.tracker.set_value(-4)
 
-        c1 = Circle(radius=dot_radius*1.35, color="#EEEEEE", stroke_width=2)
+        c1 = Circle(radius=dot_radius * 1.35, color="#EEEEEE", stroke_width=2)
         c1.add_updater(lambda it: it.move_to(self.x.get_center()))
 
         self.x.add_updater(lambda it: it.move_to([4.5 * sin(self.tracker.get_value()), self.tracker.get_value(), 0]))
