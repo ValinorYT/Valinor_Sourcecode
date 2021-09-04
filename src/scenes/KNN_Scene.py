@@ -1,16 +1,9 @@
 from manim import *
 
-from src.data.graphics_stuff import BACKGROUND_COLOR, opacity_medium, opacity_weak, OFF_WHITE
-from src.data.lengths import x_radius_outer, x_radius_inner, line_width, dot_radius, x_radius_circle
+from src.data.graphics_stuff import BACKGROUND_COLOR, OFF_WHITE
+from src.data.lengths import line_width, dot_radius
 from src.utils.color_utils import most_common_color
 from src.utils.distances import dots_sorted_by_distance
-
-
-def change_opacity_by_condition(condition, dots):
-    for dot in dots:
-        dot.add_updater(
-            lambda it: it.set_fill(
-                opacity=opacity_medium if it in condition(dots) else opacity_weak))
 
 
 class KNN_Scene(Scene):
@@ -30,8 +23,8 @@ class KNN_Scene(Scene):
     def __init__(self):
         super().__init__()
         self.camera.background_color = BACKGROUND_COLOR
-        self.x = Annulus(inner_radius=x_radius_inner, outer_radius=x_radius_outer)
-        self.x_circle = Circle(radius=dot_radius * x_radius_circle, color=OFF_WHITE, stroke_width=2)
+        self.x = Dot(radius=dot_radius * 1.3)
+        self.x_circle = Circle(radius=self.x.radius * 1.35, color=OFF_WHITE, stroke_width=3)
         self.x_circle.add_updater(lambda it: it.move_to(self.x.get_center()))
 
     def get_label_prediction(self, dots):

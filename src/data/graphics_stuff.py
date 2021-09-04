@@ -3,5 +3,5 @@ OFF_WHITE = "#EEEEEE"
 
 LABEL_COLORS = ["#e81f59", "#1be9a1", "#53adf9"]
 
-opacity_weak = .1
-opacity_medium = .35
+opacity_weak = .8
+opacity_medium = .9

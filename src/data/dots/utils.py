@@ -1,5 +1,5 @@
 import numpy as np
-from manim import Circle
+from manim import Circle, Dot
 
 from src.data.dots.dots1 import labels1
 from src.data.graphics_stuff import LABEL_COLORS
@@ -12,5 +12,5 @@ def get_positions(_x_y_pos):
 
 def get_dots(_positions, _labels):
     return [
-        Circle(color=LABEL_COLORS[_labels[i]], radius=dot_radius, stroke_width=5, fill_opacity=.1).move_to(_positions[i])
+        Dot(color=LABEL_COLORS[_labels[i]], radius=dot_radius).move_to(_positions[i])
         for i in range(len(_positions))]

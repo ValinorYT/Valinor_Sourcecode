@@ -6,10 +6,7 @@ from numpy import sin
 
 from src.data.dots.dots1 import positions, labels1
 from src.data.dots.utils import get_dots, get_positions
-from src.data.graphics_stuff import OFF_WHITE
-from src.data.lengths import dot_radius, x_radius_circle
-from src.scenes.KNN_Scene import KNN_Scene, change_opacity_by_condition
-from src.utils.distances import dots_sorted_by_distance
+from src.scenes.KNN_Scene import KNN_Scene
 
 
 class Changing_NB_1(KNN_Scene):
@@ -19,11 +16,10 @@ class Changing_NB_1(KNN_Scene):
         self.play(Create(VGroup(*self.dots)))
         self.tracker.set_value(-4)
 
-        change_opacity_by_condition(lambda a: dots_sorted_by_distance(self.x, a)[:self.k], self.dots)
-
         self.x.add_updater(
             lambda it: it.move_to([3.5 * sin(2 * self.tracker.get_value()), self.tracker.get_value(), 0]))
         self.x.add_updater(lambda it: it.set_color(self.get_label_prediction(self.dots)))
+
         self.add(self.x, self.x_circle)
         self.add_nb_lines(self.dots)
 
