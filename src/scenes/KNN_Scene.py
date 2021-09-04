@@ -2,7 +2,7 @@ from manim import *
 
 from src.config import background
 from src.data import dots
-from src.utils.colors import most_common_color
+from src.utils.color_utils import most_common_color
 from src.utils.distances import dots_sorted_by_distance
 
 
@@ -26,4 +26,4 @@ class KNN_Scene(Scene):
 
     def get_label_prediction(self):
         k_neighbours = dots_sorted_by_distance(self.x, dots)[:3]
-        return str(most_common_color([x.get_color() for x in k_neighbours])[0][0])
+        return most_common_color([x.get_color() for x in k_neighbours])[0]
