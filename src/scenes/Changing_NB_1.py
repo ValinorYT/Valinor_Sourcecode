@@ -16,6 +16,10 @@ class Changing_NB_1(KNN_Scene):
         self.play(Create(VGroup(*dots)))
         self.tracker.set_value(-4)
 
+        for dot in dots:
+            dot.add_updater(
+                lambda it: it.set_fill(opacity=.45 if it in dots_sorted_by_distance(self.x, dots)[:3] else .1))
+
         c1 = Circle(radius=dot_radius * 1.35, color="#EEEEEE", stroke_width=2)
         c1.add_updater(lambda it: it.move_to(self.x.get_center()))
 
