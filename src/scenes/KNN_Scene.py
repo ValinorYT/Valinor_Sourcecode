@@ -1,6 +1,6 @@
 from manim import *
-from src.data.colors import background
-from src.data.dots1 import dots
+from src.data.graphics_stuff import background
+from src.data.dots.dots1 import dots
 from src.data.lengths import x_radius_big, x_radius_small
 
 from src.utils.color_utils import most_common_color

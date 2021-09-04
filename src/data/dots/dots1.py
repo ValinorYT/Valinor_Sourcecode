@@ -1,7 +1,7 @@
 import numpy as np
 from manim import Circle
 
-from src.data.colors import LABEL_COLORS
+from src.data.graphics_stuff import LABEL_COLORS
 from src.data.lengths import dot_radius
 
 labels = [
