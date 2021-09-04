@@ -19,9 +19,9 @@ class IntroductionScene(KNN_Scene):
         self.add(self.x, self.x_circle)
 
         self.wait(2)
-        self.play(self.x.animate.set_color(LABEL_COLORS[2]))
+        self.play(self.x.animate.set_color(LABEL_COLORS[2]), run_time=.6)
         self.wait(2)
-        self.play(self.x.animate.set_color(LABEL_COLORS[0]))
+        self.play(self.x.animate.set_color(LABEL_COLORS[0]), run_time=.6)
         self.wait(2)
 
 
