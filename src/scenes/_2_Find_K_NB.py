@@ -3,7 +3,7 @@ from pathlib import Path
 
 from manim import *
 
-from src.data.dots.dots1 import positions, labels2
+from src.data.dots.dots1 import positions, labels_2_classes
 from src.data.dots.utils import get_dots, get_positions
 from src.data.graphics_stuff import OFF_WHITE
 from src.scenes.KNN_Scene import KNN_Scene
@@ -11,7 +11,7 @@ from src.utils.distances import dots_sorted_by_distance
 
 
 class Find_K_NB(KNN_Scene):
-    dots = get_dots(get_positions(positions), labels2)
+    dots = get_dots(get_positions(positions), labels_2_classes)
 
     def construct(self):
         self.play(Create(VGroup(*self.dots)))

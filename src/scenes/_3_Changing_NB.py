@@ -4,13 +4,13 @@ from pathlib import Path
 from manim import *
 from numpy import sin
 
-from src.data.dots.dots1 import positions, labels1
+from src.data.dots.dots1 import positions, labels_3_classes
 from src.data.dots.utils import get_dots, get_positions
 from src.scenes.KNN_Scene import KNN_Scene
 
 
 class Changing_NB_1(KNN_Scene):
-    dots = get_dots(get_positions(positions), labels1)
+    dots = get_dots(get_positions(positions), labels_3_classes)
 
     def construct(self):
         self.play(Create(VGroup(*self.dots)))
