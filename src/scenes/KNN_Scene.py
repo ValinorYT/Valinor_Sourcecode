@@ -24,7 +24,7 @@ class KNN_Scene(Scene):
         super().__init__()
         self.camera.background_color = BACKGROUND_COLOR
         self.x = Dot(radius=dot_radius * 1.3)
-        self.x_circle = Circle(radius=self.x.radius * 1.35, color=OFF_WHITE, stroke_width=3)
+        self.x_circle = Circle(radius=self.x.radius * 1.2, color=OFF_WHITE, stroke_width=2)
         self.x_circle.add_updater(lambda it: it.move_to(self.x.get_center()))
 
     def get_label_prediction(self, dots):
@@ -42,5 +42,5 @@ class KNN_Scene(Scene):
                                  end=dots_sorted_by_distance(self.x, dots)[idx].get_center(),
                                  stroke_width=line_width,
                                  color=dots_sorted_by_distance(self.x, dots)[idx].get_color(),
-                                 buff=dot_radius * 1.5)
+                                 buff=dot_radius * 1.66)
                              )
