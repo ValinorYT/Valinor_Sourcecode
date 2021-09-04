@@ -4,7 +4,7 @@ from pathlib import Path
 from manim import *
 from numpy import sin
 
-from src.data.graphics_stuff import opacity_weak, opacity_medium
+from src.data.graphics_stuff import opacity_weak, opacity_medium, OFF_WHITE
 from src.data.dots.dots1 import dots
 from src.data.lengths import dot_radius, line_width
 from src.scenes.KNN_Scene import KNN_Scene
@@ -19,7 +19,7 @@ class Changing_NB_1(KNN_Scene):
 
         self.add_dot_opacity_toggle()
 
-        c1 = Circle(radius=dot_radius * 1.35, color="#EEEEEE", stroke_width=2)
+        c1 = Circle(radius=dot_radius * 1.35, color=OFF_WHITE, stroke_width=2)
         c1.add_updater(lambda it: it.move_to(self.x.get_center()))
 
         self.x.add_updater(lambda it: it.move_to([3.5 * sin(2*self.tracker.get_value()), self.tracker.get_value(), 0]))
@@ -53,4 +53,4 @@ class Changing_NB_1(KNN_Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} Changing_NB_1 -pqp")
+    os.system(f"manim {script_name} Changing_NB_1 -pql")

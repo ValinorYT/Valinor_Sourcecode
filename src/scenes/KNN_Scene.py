@@ -1,5 +1,5 @@
 from manim import *
-from src.data.graphics_stuff import background
+from src.data.graphics_stuff import BACKGROUND_COLOR
 from src.data.dots.dots1 import dots
 from src.data.lengths import x_radius_big, x_radius_small
 
@@ -19,12 +19,13 @@ class KNN_Scene(Scene):
     }
 
     tracker = ValueTracker(0)
+    k = 3
 
     def __init__(self):
         super().__init__()
-        self.camera.background_color = background
+        self.camera.background_color = BACKGROUND_COLOR
         self.x = Annulus(inner_radius=x_radius_small, outer_radius=x_radius_big)
 
     def get_label_prediction(self):
-        k_neighbours = dots_sorted_by_distance(self.x, dots)[:3]
+        k_neighbours = dots_sorted_by_distance(self.x, dots)[:self.k]
         return most_common_color([x.get_color() for x in k_neighbours])[0]
