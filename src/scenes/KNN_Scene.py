@@ -1,7 +1,7 @@
 from manim import *
 
-from src.data.graphics_stuff import BACKGROUND_COLOR, opacity_medium, opacity_weak
-from src.data.lengths import x_radius_outer, x_radius_inner, line_width, dot_radius
+from src.data.graphics_stuff import BACKGROUND_COLOR, opacity_medium, opacity_weak, OFF_WHITE
+from src.data.lengths import x_radius_outer, x_radius_inner, line_width, dot_radius, x_radius_circle
 from src.utils.color_utils import most_common_color
 from src.utils.distances import dots_sorted_by_distance
 
@@ -31,6 +31,8 @@ class KNN_Scene(Scene):
         super().__init__()
         self.camera.background_color = BACKGROUND_COLOR
         self.x = Annulus(inner_radius=x_radius_inner, outer_radius=x_radius_outer)
+        self.x_circle = Circle(radius=dot_radius * x_radius_circle, color=OFF_WHITE, stroke_width=2)
+        self.x_circle.add_updater(lambda it: it.move_to(self.x.get_center()))
 
     def get_label_prediction(self, dots):
         k_neighbours = dots_sorted_by_distance(self.x, dots)[:self.k]
