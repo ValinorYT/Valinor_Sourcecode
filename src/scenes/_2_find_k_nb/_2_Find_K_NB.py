@@ -3,7 +3,7 @@ from pathlib import Path
 
 from manim import *
 
-from src.data.dots.dots1 import positions, labels_2_classes
+from src.data.dots.dots1 import positions, labels_3_classes
 from src.data.dots.utils import get_dots, get_positions
 from src.data.graphics_stuff import OFF_WHITE
 from src.data.lengths import dot_radius
@@ -12,12 +12,12 @@ from src.utils.distances import dots_sorted_by_distance
 
 
 class Find_K_NB(KNN_Scene):
-    dots = get_dots(get_positions(positions), labels_2_classes)
+    dots = get_dots(get_positions(positions), labels_3_classes)
 
     def construct(self):
         self.play(Create(VGroup(*self.dots)))
 
-        self.x.move_to([-.75, .3, 0])
+        self.x.move_to([-2.5, 2.6, 0])
 
         animation_circle = always_redraw(
             lambda: Circle(radius=self.tracker.get_value(), color=OFF_WHITE,
@@ -38,6 +38,9 @@ class Find_K_NB(KNN_Scene):
                     run_time=4, lag_ratio=.3
                 )
             )
+
+        self.play(FadeOut(animation_circle))
+        self.wait(3)
 
     def distance_to_nth_dot(self, n):
         other_pos = np.array(dots_sorted_by_distance(self.x, self.dots)[n].get_center())

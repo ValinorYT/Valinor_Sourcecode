@@ -18,7 +18,7 @@ class KNN_Scene(Scene):
     }
 
     tracker = ValueTracker(0)
-    k = 5
+    k = 3
 
     def __init__(self):
         super().__init__()
@@ -27,7 +27,7 @@ class KNN_Scene(Scene):
         self.x_circle = Circle(radius=self.x.radius * 1.2, color=OFF_WHITE, stroke_width=2)
         self.x_circle.add_updater(lambda it: it.move_to(self.x.get_center()))
 
-        self.k_text = Text(f"k = Number of used dots\n= {self.k}")\
+        self.k_text = Text(f"k = Number of used dots\n= {self.k}") \
             .scale(.5).to_edge(UL, buff=.3)
         self.k_rect = SurroundingRectangle(self.k_text, buff=0.13, stroke_color=OFF_WHITE, stroke_width=2)
         self.k_group = VGroup(self.k_text, self.k_rect)
