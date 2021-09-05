@@ -27,6 +27,10 @@ class KNN_Scene(Scene):
         self.x_circle = Circle(radius=self.x.radius * 1.2, color=OFF_WHITE, stroke_width=2)
         self.x_circle.add_updater(lambda it: it.move_to(self.x.get_center()))
 
+        self.k_text = Text(f"k = {self.k}").to_edge(UL, buff=.3)
+        self.k_rect = SurroundingRectangle(self.k_text, buff=0.13, stroke_color=OFF_WHITE, stroke_width=2)
+        self.k_group = VGroup(self.k_text, self.k_rect)
+
     def get_label_prediction(self, dots):
         k_neighbours = dots_sorted_by_distance(self.x, dots)[:self.k]
         return most_common_color([x.get_color() for x in k_neighbours])[0]

@@ -24,7 +24,7 @@ class Find_K_NB(KNN_Scene):
                            stroke_width=2).move_to(self.x.get_center())
         )
 
-        self.add(self.x, self.x_circle, animation_circle)
+        self.add(self.x, self.x_circle, animation_circle, self.k_group)
 
         for j in range(self.k):
             pos = dots_sorted_by_distance(self.x, self.dots)[j].get_center()
@@ -46,4 +46,4 @@ class Find_K_NB(KNN_Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} Find_K_NB -pqp")
+    os.system(f"manim {script_name} Find_K_NB -pql")
