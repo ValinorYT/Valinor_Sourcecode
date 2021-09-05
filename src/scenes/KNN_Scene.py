@@ -1,4 +1,5 @@
 from manim import *
+from manim import Broadcast, Circle
 
 from src.data.graphics_stuff import BACKGROUND_COLOR, OFF_WHITE
 from src.data.lengths import line_width, dot_radius
@@ -49,3 +50,8 @@ class KNN_Scene(Scene):
                                  color=dots_sorted_by_distance(self.x, dots)[idx].get_color(),
                                  buff=dot_radius * 1.66)
                              )
+
+    def indicate_x(self):
+        self.play(
+            Broadcast(Circle(color=OFF_WHITE, radius=dot_radius * 4.5),
+                      n_mobs=3, focal_point=self.x.get_center(), run_time=2))
