@@ -34,7 +34,7 @@ class Find_K_NB(KNN_Scene):
                     Create(Circle(radius=dot_radius * 1.25, color=OFF_WHITE, stroke_width=1.2).move_to(pos)),
                     Create(self.line_by_index(j, self.dots)),
                     Broadcast(Circle(color=OFF_WHITE, radius=dot_radius * 1.5), n_mobs=1, focal_point=pos),
-                    Write(Text(str(j + 1)).scale(.35).next_to(pos, DOWN, buff=.3)),
+                    Write(Text(str(j + 1)).scale(.35).next_to(pos, DOWN, buff=.27)),
                     run_time=4, lag_ratio=.3
                 )
             )

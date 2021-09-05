@@ -28,4 +28,4 @@ class Changing_NB_1(KNN_Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} Changing_NB_1 -pql")
+    os.system(f"manim {script_name} Changing_NB_1 -pqp")
