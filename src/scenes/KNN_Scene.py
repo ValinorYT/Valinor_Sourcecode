@@ -18,7 +18,6 @@ class KNN_Scene(Scene):
         "axes_color": WHITE
     }
 
-    tracker = ValueTracker(0)
     k = 3
 
     def __init__(self):

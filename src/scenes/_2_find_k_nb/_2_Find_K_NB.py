@@ -13,6 +13,7 @@ from src.utils.distances import dots_sorted_by_distance
 
 class Find_K_NB(KNN_Scene):
     dots = get_dots(get_positions(positions), labels_3_classes)
+    tracker = ValueTracker(0)
 
     def construct(self):
         self.play(Create(VGroup(*self.dots)))

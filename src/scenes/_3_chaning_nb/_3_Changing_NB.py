@@ -11,6 +11,7 @@ from src.scenes.KNN_Scene import KNN_Scene
 
 class Changing_NB_1(KNN_Scene):
     dots = get_dots(get_positions(positions), labels_3_classes)
+    tracker = ValueTracker(0)
 
     def construct(self):
         self.play(Create(VGroup(*self.dots)))
