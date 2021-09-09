@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_1_IntroductionScene/1440p60/partial_movie_files/_1_1_IntroductionScene/2513468501_2927330580_1240453128.mp4'
+file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_1_IntroductionScene/1440p60/partial_movie_files/_1_1_IntroductionScene/3225532210_1992464735_4020065600.mp4'
+file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_1_IntroductionScene/1440p60/partial_movie_files/_1_1_IntroductionScene/3225532210_2766345514_4283823347.mp4'
+file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_1_IntroductionScene/1440p60/partial_movie_files/_1_1_IntroductionScene/3225532210_2766345514_4175348033.mp4'
+file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_1_IntroductionScene/1440p60/partial_movie_files/_1_1_IntroductionScene/3225532210_1407778721_1595507346.mp4'
+file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_1_IntroductionScene/1440p60/partial_movie_files/_1_1_IntroductionScene/3225532210_2766345514_1952242087.mp4'
