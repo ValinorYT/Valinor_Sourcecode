@@ -4,7 +4,7 @@ from manim import Broadcast, Circle
 from knn.src.data.graphics_stuff import BACKGROUND_COLOR, OFF_WHITE
 from knn.src.data.lengths import line_width, dot_radius
 from knn.src.utils.color_utils import most_common_color
-from knn.src.utils.distances import dots_sorted_by_distance
+from knn.src.utils.distances import stuff_sorted_by_distance
 
 
 class KNN_Scene(Scene):
@@ -28,7 +28,7 @@ class KNN_Scene(Scene):
         self.x_circle.add_updater(lambda it: it.move_to(self.x.get_center()))
 
     def get_label_prediction(self, dots):
-        k_neighbours = dots_sorted_by_distance(self.x, dots)[:self.k]
+        k_neighbours = stuff_sorted_by_distance(self.x, dots)[:self.k]
         return most_common_color([x.get_color() for x in k_neighbours])[0]
 
     def add_nb_lines_with_updater(self, dots):
@@ -39,16 +39,16 @@ class KNN_Scene(Scene):
         return always_redraw(lambda:
                              Line(
                                  start=self.x.get_center() + [0, 0, -1],
-                                 end=dots_sorted_by_distance(self.x, dots)[idx].get_center() + [0, 0, -1],
+                                 end=stuff_sorted_by_distance(self.x, dots)[idx].get_center() + [0, 0, -1],
                                  stroke_width=line_width,
-                                 color=dots_sorted_by_distance(self.x, dots)[idx].get_color(),
+                                 color=stuff_sorted_by_distance(self.x, dots)[idx].get_color(),
                                  buff=dot_radius * 2.2)
                              )
 
     def indicate_object(self, obj):
         self.play(
-            Broadcast(Circle(color=OFF_WHITE, radius=dot_radius * 4.5),
-                      n_mobs=3, focal_point=obj.get_center(), run_time=1.3))
+            Broadcast(Circle(color=OFF_WHITE, radius=dot_radius * 3.5),
+                      n_mobs=1, focal_point=obj.get_center(), run_time=.6))
 
     def get_k_group(self):
         k_text = Text(f"k = {self.k}") \

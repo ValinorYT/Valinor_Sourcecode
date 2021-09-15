@@ -8,7 +8,7 @@ from knn.src.data.dots.utils import get_dots, get_positions
 from knn.src.data.graphics_stuff import OFF_WHITE
 from knn.src.data.lengths import dot_radius
 from knn.src.scenes.KNN_Scene import KNN_Scene
-from knn.src.utils.distances import dots_sorted_by_distance
+from knn.src.utils.distances import stuff_sorted_by_distance
 
 
 class _2_Find_K_NB(KNN_Scene):
@@ -28,7 +28,7 @@ class _2_Find_K_NB(KNN_Scene):
         self.add(self.x, self.x_circle, animation_circle, self.get_k_group())
 
         for j in range(self.k):
-            pos = dots_sorted_by_distance(self.x, self.dots)[j].get_center()
+            pos = stuff_sorted_by_distance(self.x, self.dots)[j].get_center()
             self.play(
                 LaggedStart(
                     self.tracker.animate.set_value(self.distance_to_nth_dot(j)),
@@ -44,7 +44,7 @@ class _2_Find_K_NB(KNN_Scene):
         self.wait(3)
 
     def distance_to_nth_dot(self, n):
-        other_pos = np.array(dots_sorted_by_distance(self.x, self.dots)[n].get_center())
+        other_pos = np.array(stuff_sorted_by_distance(self.x, self.dots)[n].get_center())
         return np.linalg.norm(np.array(self.x.get_center()) - other_pos)
 
 

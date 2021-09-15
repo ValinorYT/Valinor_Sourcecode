@@ -7,7 +7,7 @@ from knn.src.data.dots.dots1 import positions, labels_3_classes
 from knn.src.data.dots.utils import get_dots, get_positions
 from knn.src.data.graphics_stuff import LABEL_COLORS
 from knn.src.scenes.KNN_Scene import KNN_Scene
-from knn.src.utils.distances import dots_sorted_by_distance
+from knn.src.utils.distances import stuff_sorted_by_distance
 
 
 class _1_2_Outliers(KNN_Scene):
@@ -21,12 +21,12 @@ class _1_2_Outliers(KNN_Scene):
         self.indicate_object(self.x)
         self.wait(2)
 
-        self.indicate_object(dots_sorted_by_distance(self.x, self.dots)[0])
+        self.indicate_object(stuff_sorted_by_distance(self.x, self.dots)[0])
         self.play(self.x.animate.set_color(LABEL_COLORS[1]), run_time=.6)
         self.wait(2)
 
-        self.indicate_object(dots_sorted_by_distance(self.x, self.dots)[1])
-        self.indicate_object(dots_sorted_by_distance(self.x, self.dots)[2])
+        self.indicate_object(stuff_sorted_by_distance(self.x, self.dots)[1])
+        self.indicate_object(stuff_sorted_by_distance(self.x, self.dots)[2])
         self.play(self.x.animate.set_color(LABEL_COLORS[0]), run_time=.6)
         self.wait(2)
 
