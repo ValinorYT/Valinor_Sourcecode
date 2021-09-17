@@ -1,6 +1,6 @@
 # [Valinor](https://www.youtube.com/channel/UCj-6F_YIsOgW0RjxHhYFyQw)
 
-- Welcome to where to magic behind not-so-closed doors happens :)
+- Welcome to where the magic behind not-so-closed doors happens :)
 
 In this project, we create the animations for our videos, using mainly [manim-community](https://www.manim.community).
 
