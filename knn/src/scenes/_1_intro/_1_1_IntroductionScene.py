@@ -28,4 +28,4 @@ class _1_1_IntroductionScene(KNN_Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} -pqp")
+    os.system(f"manim {script_name} -pql")

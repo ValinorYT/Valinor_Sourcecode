@@ -24,5 +24,5 @@ def plot_decision_boundaries(x, y, model):
 
 
 plt.figure()
-plot_decision_boundaries(positions, labels_3_classes, KNeighborsClassifier(n_neighbors=15))
+plot_decision_boundaries(positions, labels_3_classes, KNeighborsClassifier(n_neighbors=3))
 plt.show()

@@ -1,8 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2910642872_1543535972_1240453128.mp4'
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2274035233_759035947_721731464.mp4'
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2274035233_2766345514_495812812.mp4'
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2274035233_2060426313_2790343714.mp4'
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2274035233_2766345514_3508597758.mp4'
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2274035233_2305603733_1026886138.mp4'
-file 'file:C:/Users/mgros/PycharmProjects/Valinor/src/scenes/_1_intro/media/videos/_1_2_Outliers/480p15/partial_movie_files/Outliers/2274035233_2766345514_3305463125.mp4'
