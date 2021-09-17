@@ -1,15 +1,12 @@
-import os
-from pathlib import Path
-
 from manim import *
 from manim import Circle
 
 from k_means.data.dots.dots1 import k_means_positions
-from knn.src.data.dots.utils import get_positions
-from knn.src.data.graphics_stuff import OFF_WHITE, LABEL_COLORS
-from knn.src.data.lengths import dot_radius
+from general.data.dots.utils import get_positions
+from general.data.graphics_stuff import OFF_WHITE, LABEL_COLORS
+from general.data.lengths import dot_radius
 from knn.src.scenes.KNN_Scene import KNN_Scene
-from knn.src.utils.distances import stuff_sorted_by_distance
+from general.utils.distances import stuff_sorted_by_distance
 
 
 class KMeans_Scene(KNN_Scene):

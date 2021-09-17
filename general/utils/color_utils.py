@@ -1,6 +1,6 @@
 from collections import Counter
 
-from knn.src.utils.HashWrapper import HashWrapper
+from general.utils.HashWrapper import HashWrapper
 
 
 def most_common_color(colors):

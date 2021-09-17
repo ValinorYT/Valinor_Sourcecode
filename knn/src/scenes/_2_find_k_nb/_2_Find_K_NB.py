@@ -3,12 +3,12 @@ from pathlib import Path
 
 from manim import *
 
-from knn.src.data.dots.dots1 import positions, labels_3_classes
-from knn.src.data.dots.utils import get_dots, get_positions
-from knn.src.data.graphics_stuff import OFF_WHITE
-from knn.src.data.lengths import dot_radius
+from general.data.dots.dots1 import positions, labels_3_classes
+from general.data.dots.utils import get_dots, get_positions
+from general.data.graphics_stuff import OFF_WHITE
+from general.data.lengths import dot_radius
 from knn.src.scenes.KNN_Scene import KNN_Scene
-from knn.src.utils.distances import stuff_sorted_by_distance
+from general.utils.distances import stuff_sorted_by_distance
 
 
 class _2_Find_K_NB(KNN_Scene):

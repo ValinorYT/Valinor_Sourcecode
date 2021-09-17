@@ -3,9 +3,9 @@ from pathlib import Path
 
 from manim import *
 
-from knn.src.data.dots.dots1 import positions, labels_2_classes
-from knn.src.data.dots.utils import get_dots, get_positions
-from knn.src.data.graphics_stuff import LABEL_COLORS
+from general.data.dots.dots1 import positions, labels_2_classes
+from general.data.dots.utils import get_dots, get_positions
+from general.data.graphics_stuff import LABEL_COLORS
 from knn.src.scenes.KNN_Scene import KNN_Scene
 
 

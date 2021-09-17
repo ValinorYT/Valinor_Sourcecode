@@ -6,10 +6,9 @@ from colour import Color
 from manim import *
 from numpy import sin
 
-from knn.src.data.dots.dots1 import positions, labels_3_classes
-from knn.src.data.dots.utils import get_positions
-from knn.src.data.graphics_stuff import OFF_WHITE
-from knn.src.data.lengths import stroke_width
+from general.data.dots.dots1 import positions
+from general.data.dots.utils import get_positions
+from general.data.lengths import stroke_width
 from knn.src.scenes.KNN_Scene import KNN_Scene
 
 radius_factor = .3

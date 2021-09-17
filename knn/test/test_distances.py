@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from manim import Dot
 
-from knn.src.utils.distances import stuff_sorted_by_distance
+from general.utils.distances import stuff_sorted_by_distance
 
 x1 = Dot([0, 0, 0])
 x2 = Dot([2, 2, 3])

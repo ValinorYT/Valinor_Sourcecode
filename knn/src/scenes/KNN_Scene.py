@@ -1,10 +1,10 @@
 from manim import *
 from manim import Broadcast, Circle
 
-from knn.src.data.graphics_stuff import BACKGROUND_COLOR, OFF_WHITE
-from knn.src.data.lengths import line_width, dot_radius
-from knn.src.utils.color_utils import most_common_color
-from knn.src.utils.distances import stuff_sorted_by_distance
+from general.data.graphics_stuff import BACKGROUND_COLOR, OFF_WHITE
+from general.data.lengths import line_width, dot_radius
+from general.utils.color_utils import most_common_color
+from general.utils.distances import stuff_sorted_by_distance
 
 
 class KNN_Scene(Scene):

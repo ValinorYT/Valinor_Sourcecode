@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 
-from knn.src.data.dots.dots1 import positions, labels_3_classes
-from knn.src.data.graphics_stuff import LABEL_COLORS
+from general.data.dots.dots1 import positions, labels_3_classes
+from general.data.graphics_stuff import LABEL_COLORS
 
 
 def plot_decision_boundaries(x, y, model):

@@ -1,8 +1,8 @@
 import numpy as np
-from manim import Dot, Circle
+from manim import Circle
 
-from knn.src.data.graphics_stuff import LABEL_COLORS
-from knn.src.data.lengths import dot_radius
+from general.data.graphics_stuff import LABEL_COLORS
+from general.data.lengths import dot_radius
 
 
 def get_positions(_x_y_pos):
