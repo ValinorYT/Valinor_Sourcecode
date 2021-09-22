@@ -17,5 +17,3 @@ k_means_positions = [[3.37, 1.29],
                      [1.5, 2.49],
                      [4.0, 2.7],
                      [4.9, 2.5]]
-
-print([list(x + np.array([1, 0])) for x in k_means_positions])
