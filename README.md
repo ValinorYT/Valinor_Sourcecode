@@ -10,13 +10,6 @@ We decided to upload our sourcecode as we got alot of requests where people want
 If something seems incomprehensible, consider that it may just be bad code🥴
 
 
-<br>
-<br>
-<hr>
-Below are examples of work we did in this repository:
-
-![_3_2_K3_Move_X(1)(1)](https://user-images.githubusercontent.com/25711926/133859412-3cee9253-7619-45df-8450-26c294790fde.gif)
-
 ## My advice for starters
 
 - You can find everything going from  [manim-community](https://www.manim.community)
@@ -27,3 +20,10 @@ Below are examples of work we did in this repository:
 - Have fun!?
 
 If this repo or especially this README can be improved, write a message on GitHub, Twitter, YT, whatever you like :)
+
+<br>
+<br>
+<hr>
+Below are examples of work we did in this repository:
+
+![_3_2_K3_Move_X(1)(1)](https://user-images.githubusercontent.com/25711926/133859412-3cee9253-7619-45df-8450-26c294790fde.gif)
