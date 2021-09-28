@@ -27,7 +27,6 @@ class BarCharExam(Scene):
         gini_bar = always_redraw(lambda: BarChart([gini(np.array(tracker_values()))]).to_edge(DR))
 
         self.add(bar_chart, gini_bar)
-
         self.play(trackers[0].animate.set_value(0),
                   trackers[1].animate.set_value(1.3),
                   trackers[2].animate.set_value(0),
