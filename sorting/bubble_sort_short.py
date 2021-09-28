@@ -18,13 +18,13 @@ class SortingScene(Scene):
         super().__init__()
 
         self.n = 6
-        y = [6, 2, 5, 3, 1, 4]  # formerly np.random.permutation(self.n)
+        y = [6, 2, 5, 3, 1, 4]
 
         self.items = VGroup(*[VGroup(  # was für ein Brecher LUL
-            Text(str(y[i] + 1), height=1),
-            Rectangle(height=(y[i] + 1) / 3, width=.7),
-            Rectangle(height=(self.n - y[i]) / 3, width=.7, stroke_opacity=0)  # make all items same height
-        ).arrange(UP) for i in range(self.n)]).arrange(buff=.9).to_edge(DR, buff=1.2)
+            Text(str(y[i]), height=1),
+            Rectangle(height=(y[i]) / 2.5, width=.85),
+            Rectangle(height=(self.n - y[i]) / 2.5, width=.85, stroke_opacity=0)  # make all items same height
+        ).arrange(UP) for i in range(self.n)]).arrange(buff=.9).to_edge(DR, buff=(1.1, .8, 0))
 
         pseudo_lines = ["Randomly place k centroids",
                         "repeat until centroids stand still:",
@@ -35,7 +35,7 @@ class SortingScene(Scene):
         self.pseudo_text = Text(self.pseudo_string, font="Source Han Sans", line_spacing=1.3) \
             .scale(0.5).to_edge(UL, buff=.4)
         self.pseudo_lengths = np.cumsum([0] + [len(line.replace(" ", "")) for line in pseudo_lines])
-        self.pseudo_rect = SurroundingRectangle(self.pseudo_text, buff=0.15, stroke_color=GREY, stroke_width=1)
+        self.pseudo_rect = SurroundingRectangle(self.pseudo_text, buff=0.15, stroke_color=GREY, stroke_width=1.5)
 
     def swap_items(self, i, j):
         self.play(  # swap on visualization
