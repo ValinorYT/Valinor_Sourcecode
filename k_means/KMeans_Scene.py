@@ -10,8 +10,9 @@ from knn.src.scenes.KNN_Scene import KNN_Scene
 
 
 class KMeans_Scene(KNN_Scene):
-    centroid_starting_positions = [-2, -2, 0], [0, 3, 0], [3, 0, 0]
-
+    centroid_starting_positions = [-3.5, 0, 0], [.2 , 0, 0]
+    k = len(centroid_starting_positions)
+    n_runs = 3
     dots = [
         Circle(color=OFF_WHITE, radius=.85 * dot_radius, stroke_width=8, fill_opacity=.7).move_to(
             get_positions(k_means_positions)[i])
@@ -22,7 +23,7 @@ class KMeans_Scene(KNN_Scene):
         for i, pos in enumerate(centroid_starting_positions)
     ]
 
-    pseudo_lines = ["Randomly place k centroids",
+    pseudo_lines = [f"Randomly place k (={k}) centroids",
                     "repeat until centroids stand still:",
                     "          Assign each datapoint to closest centroid",
                     "          Move centroid to mean of its data points"]
@@ -35,7 +36,6 @@ class KMeans_Scene(KNN_Scene):
 
     def color_pseudo(self, line_idx):
         self.pseudo_text.set_color(WHITE)
-        self.pseudo_text.set_size(3)
         self.pseudo_text[self.pseudo_lengths[line_idx]: self.pseudo_lengths[line_idx + 1]].set_color(GREY)
 
     def distance_to_closest_centroid(self, dot):
@@ -43,8 +43,6 @@ class KMeans_Scene(KNN_Scene):
         return np.linalg.norm(np.array(dot.get_center()) - closest_centroid)
 
     def construct(self):
-        n_runs = 3
-
         self.play(Create(VGroup(*self.dots)))
         self.play(Write(self.pseudo_text), Create(self.pseudo_rect))
 
@@ -52,14 +50,14 @@ class KMeans_Scene(KNN_Scene):
         self.play(Create(VGroup(*self.centroids)), run_time=2)
         self.wait(2)
 
-        for run_idx in range(n_runs):
+        for run_idx in range(self.n_runs):
 
             self.color_pseudo(1)
             self.wait(1.6)
             self.color_pseudo(2)
 
             # === Get closest centroid for each datapoint ===
-            for dot in self.dots:
+            for idx, dot in enumerate(self.dots):
                 closest_centroid = stuff_sorted_by_distance(dot, self.centroids)[0]
                 my_color = closest_centroid.get_color()
 
@@ -74,6 +72,7 @@ class KMeans_Scene(KNN_Scene):
                     FadeIn(Line(closest_centroid.get_center(), dot.get_center(), color=my_color, buff=.2),
                            rate_func=there_and_back),
                     dot.animate.set_color(my_color),
+                    run_time=2.5 * (.85 ** idx)
                 )
                 self.remove(growing_circle)
 
