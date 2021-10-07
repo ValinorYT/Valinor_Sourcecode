@@ -4,10 +4,10 @@ from pathlib import Path
 from k_means.KMeans_Scene import KMeans_Scene
 
 
-class _1_Animation2(KMeans_Scene):
+class Outlier(KMeans_Scene):
     pass
 
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} -pql")
+    os.system(f"manim {script_name} -pqp")

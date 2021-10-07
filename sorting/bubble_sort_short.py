@@ -2,14 +2,16 @@ import os
 from pathlib import Path
 
 import numpy as np
-from manim import Scene, VGroup, Text, Underline, FadeIn, FadeOut, Transform, Rectangle, UP, DR, UL, \
-    SurroundingRectangle, Write, Create, SMALL_BUFF
+from manim import Scene, VGroup, Text, Underline, FadeIn, FadeOut, Transform, Rectangle, UP, UL, \
+    SurroundingRectangle, Write, Create, SMALL_BUFF, DOWN
 from pygments.styles.paraiso_dark import RED
 from pygments.styles.rainbow_dash import GREY, GREEN, WHITE
 
 from general.data.graphics_stuff import BACKGROUND_COLOR
 
 t_short = .5
+buff_scaling = .9
+screen_width = 12  # sadly hardcoded, idk how to get it automatically
 
 
 class SortingScene(Scene):
@@ -17,17 +19,21 @@ class SortingScene(Scene):
     def __init__(self):
         super().__init__()
 
-        self.n = 6
-        y = [6, 2, 5, 3, 1, 4]
+        y = [5, 3, 4, 2, 1]
+        self.n = len(y)
+
+        self.text_width = 1.0 * screen_width / (len(y) * (1 + buff_scaling))
 
         self.items = VGroup(*[VGroup(  # was für ein Brecher LUL
-            Text(str(y[i]), height=1),
-            Rectangle(height=(y[i]) / 2.5, width=.85),
-            Rectangle(height=(self.n - y[i]) / 2.5, width=.85, stroke_opacity=0)  # make all items same height
-        ).arrange(UP) for i in range(self.n)]).arrange(buff=.9).to_edge(DR, buff=(1.1, .8, 0))
+            Text(str(y[i]), width=self.text_width, height=self.text_width),  # is OK
+            Rectangle(height=(y[i]) / 2.5, width=self.text_width),
+            Rectangle(height=(self.n - y[i]) / 2.5, width=self.text_width, stroke_opacity=.2)
+            # make all items same height
+        ).arrange(UP) for i in range(self.n)]).arrange(buff=buff_scaling * self.text_width).to_edge(DOWN,
+                                                                                                    buff=(1.1, .8, 0))
 
-        pseudo_lines = ["Randomly place k centroids",
-                        "repeat until centroids stand still:",
+        pseudo_lines = ["for i from 0 to n-2:",
+                        "       for j from 1 to n-1:",
                         "          Assign each datapoint to closest centroid",
                         "          Move centroid to mean of its data points"]
 
@@ -76,4 +82,4 @@ class SortingScene(Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} -pqp")
+    os.system(f"manim {script_name} -pql")

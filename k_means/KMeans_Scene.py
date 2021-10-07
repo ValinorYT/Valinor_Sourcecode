@@ -10,7 +10,7 @@ from knn.src.scenes.KNN_Scene import KNN_Scene
 
 
 class KMeans_Scene(KNN_Scene):
-    centroid_starting_positions = [-3.5, 0, 0], [.2 , 0, 0]
+    centroid_starting_positions = [-5, -.5, 0], [3, .4, 0]
     k = len(centroid_starting_positions)
     n_runs = 3
     dots = [
