@@ -12,6 +12,8 @@ buff_scaling = .9
 screen_width = 12  # sadly hardcoded, idk how to get it automatically
 max_bar_height = 4
 
+run_idx = "run_index"
+last_idx = "last_index"
 
 class SortingScene(Scene):
 
@@ -33,9 +35,9 @@ class SortingScene(Scene):
         self.items = VGroup(*self.items)  # make VGroup
         self.items.arrange(buff=buff_scaling * self.text_width).to_edge(DOWN, buff=(1.1, .8, 0))
 
-        pseudo_lines = ["for last_index from n-2 down to 0:",
-                        "       for run_index from 0 to last_index:",
-                        "               swap at run_index & run_index+1 if needed"]
+        pseudo_lines = [f"for {last_idx} from n-2 down to 0:",
+                        f"       for {run_idx} from 0 to {last_idx}:",
+                        f"               swap at {run_idx} & {run_idx}+1 if needed"]
 
         self.pseudo_string = "\n".join(pseudo_lines)
         self.pseudo_text = Text(self.pseudo_string, font="Source Han Sans", line_spacing=1.3) \
