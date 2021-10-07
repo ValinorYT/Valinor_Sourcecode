@@ -33,7 +33,7 @@ class SortingScene(Scene):
             Rectangle(height=max_bar_height - self.get_bar_height(i), width=self.text_width, stroke_opacity=.1))
                           .arrange(UP) for i in range(self.n)]
         self.items = VGroup(*self.items)  # make VGroup
-        self.items.arrange(buff=buff_scaling * self.text_width).to_edge(DOWN, buff=(1.1, .8, 0))
+        self.items.arrange(buff=buff_scaling * self.text_width).to_edge(DOWN, buff=1.5)
 
         pseudo_lines = [f"for {last_idx} from n-2 down to 0:",
                         f"       for {run_idx} from 0 to {last_idx}:",
@@ -44,6 +44,8 @@ class SortingScene(Scene):
             .scale(0.5).to_edge(UL, buff=.4)
         self.pseudo_lengths = np.cumsum([0] + [len(line.replace(" ", "")) for line in pseudo_lines])
         self.pseudo_rect = SurroundingRectangle(self.pseudo_text, buff=0.15, stroke_color=GREY, stroke_width=1.5)
+
+        self.last_idx = Text(last_idx).scale(.5).to_edge(DR)
 
     def get_bar_height(self, bar_idx):
         return max_bar_height * (self.y[bar_idx] / self.n)
@@ -59,7 +61,7 @@ class SortingScene(Scene):
         self.camera.background_color = BACKGROUND_COLOR
 
         self.play(FadeIn(self.items))
-        self.play(Write(self.pseudo_text), Create(self.pseudo_rect))
+        self.play(Write(self.pseudo_text), Create(self.pseudo_rect), Write(self.last_idx))
 
         range_line = Underline(VGroup(*self.items), stroke_width=6).shift(np.array([0, -.2, 0]))
         self.play(FadeIn(range_line), run_time=t_short)
@@ -67,7 +69,8 @@ class SortingScene(Scene):
         for i in range(self.n - 1, 0, -1):
             self.color_pseudo(0)
             self.play(Transform(range_line,
-                                Underline(VGroup(*self.items[0:i + 1]), stroke_width=6).shift(np.array([0, -.2, 0]))))
+                                Underline(VGroup(*self.items[0:i + 1]), stroke_width=6).shift(np.array([0, -.2, 0]))),
+                      self.last_idx.animate.move_to([self.items[i-1].get_center()[0], self.last_idx.get_center()[1], 0]))
 
             for j in range(i):
                 self.color_pseudo(1)
@@ -94,4 +97,4 @@ class SortingScene(Scene):
 
 if __name__ == "__main__":
     script_name = f"{Path(__file__).resolve()}"
-    os.system(f"manim {script_name} -pql")
+    os.system(f"manim {script_name} -pqp")
