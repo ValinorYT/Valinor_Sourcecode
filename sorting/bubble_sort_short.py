@@ -15,6 +15,7 @@ max_bar_height = 4
 run_idx = "run_index"
 last_idx = "last_index"
 
+
 class SortingScene(Scene):
 
     def color_pseudo(self, line_idx, highlight_color=GREY, default_color=WHITE):
@@ -24,13 +25,13 @@ class SortingScene(Scene):
     def __init__(self):
         super().__init__()
 
-        self.y = [4, 2, 3, 1]
+        self.y = [5, 2, 4, 3, 1]
         self.n = len(self.y)
 
         self.text_width = 1.0 * screen_width / (len(self.y) * (1 + buff_scaling))
         self.items = [VGroup(
             Rectangle(height=self.get_bar_height(i), width=self.text_width),
-            Rectangle(height=max_bar_height - self.get_bar_height(i), width=self.text_width, stroke_opacity=.1))
+            Rectangle(height=max_bar_height - self.get_bar_height(i), width=self.text_width, stroke_opacity=0))
                           .arrange(UP) for i in range(self.n)]
         self.items = VGroup(*self.items)  # make VGroup
         self.items.arrange(buff=buff_scaling * self.text_width).to_edge(DOWN, buff=1.5)
@@ -45,7 +46,8 @@ class SortingScene(Scene):
         self.pseudo_lengths = np.cumsum([0] + [len(line.replace(" ", "")) for line in pseudo_lines])
         self.pseudo_rect = SurroundingRectangle(self.pseudo_text, buff=0.15, stroke_color=GREY, stroke_width=1.5)
 
-        self.last_idx = Text(last_idx).scale(.5).to_edge(DR)
+        self.last_idx = Text(last_idx).scale(.5).to_edge(DOWN, buff=.2)
+        self.run_idx = Text(run_idx).scale(.5).to_edge(DOWN, buff=.77)
 
     def get_bar_height(self, bar_idx):
         return max_bar_height * (self.y[bar_idx] / self.n)
@@ -61,7 +63,7 @@ class SortingScene(Scene):
         self.camera.background_color = BACKGROUND_COLOR
 
         self.play(FadeIn(self.items))
-        self.play(Write(self.pseudo_text), Create(self.pseudo_rect), Write(self.last_idx))
+        self.play(Write(self.pseudo_text), Create(self.pseudo_rect), Write(self.last_idx), Write(self.run_idx))
 
         range_line = Underline(VGroup(*self.items), stroke_width=6).shift(np.array([0, -.2, 0]))
         self.play(FadeIn(range_line), run_time=t_short)
@@ -70,12 +72,16 @@ class SortingScene(Scene):
             self.color_pseudo(0)
             self.play(Transform(range_line,
                                 Underline(VGroup(*self.items[0:i + 1]), stroke_width=6).shift(np.array([0, -.2, 0]))),
-                      self.last_idx.animate.move_to([self.items[i-1].get_center()[0], self.last_idx.get_center()[1], 0]))
+                      self.last_idx.animate.move_to(
+                          [self.items[i - 1].get_center()[0], self.last_idx.get_center()[1], 0]))
 
             for j in range(i):
                 self.color_pseudo(1)
                 swap_line = Underline(VGroup(*self.items[j:j + 2]), stroke_width=6, buff=SMALL_BUFF * 1.35)
-                self.play(FadeIn(swap_line), run_time=t_short)
+                self.play(FadeIn(swap_line),
+                          self.run_idx.animate.move_to(
+                              [self.items[j].get_center()[0], self.run_idx.get_center()[1], 0]),
+                          run_time=t_short)
                 self.color_pseudo(2)
                 if self.y[j] > self.y[j + 1]:
                     self.play(swap_line.animate.set_color(GREEN),
