@@ -1,7 +1,12 @@
 BACKGROUND_COLOR = "#1a2427"
 OFF_WHITE = "#EEEEEE"
 
-LABEL_COLORS = ["#e81f59", "#E9DE3D", "#53adf9", "#0ee399", "#F2750F"]
+V_RED = "#e81f59"
+V_YELLOW = "#E9DE3D"
+V_BLUE = "#53adf9"
+V_GREEN = "#0ee399"
+V_ORANGE = "#F2750F"
+LABEL_COLORS = [V_RED, V_YELLOW, V_BLUE, V_GREEN, V_ORANGE]
 
 opacity_weak = .8
 opacity_medium = .9
