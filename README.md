@@ -19,7 +19,7 @@ If something seems incomprehensible, consider that it may just be bad code🥴
 - With every new thing to learn, try to make a new animation, so that you remember it.
 - Have fun!?
 
-If this repo or especially this README can be improved, write a message on GitHub, Twitter, YT, whatever you like :)
+If the repo / README can be improved, write a message on GitHub, Twitter, YT, whatever you like :)
 
 <br>
 <br>
